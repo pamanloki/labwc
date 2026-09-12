@@ -111,8 +111,9 @@
         <keybind key="W-Down"><action name="ToggleSnapToEdge" direction="down" /></keybind>
         <keybind key="A-Tab"><action name="NextWindow" /></keybind>
         <keybind key="A-S-Tab"><action name="PreviousWindow" /></keybind>
-        <keybind key="W-Tab"><action name="NextWindow" /></keybind>  <!-- Cmd+Tab forward -->
-        <keybind key="W-S-Tab"><action name="PreviousWindow" /></keybind>  <!-- Cmd+Shift+Tab backward -->
+        <!-- Cmd+Tab / Cmd+Shift+Tab -> quickshellku switcher overlay -->
+        <keybind key="W-Tab"><action name="Execute" command="qs -c quickshellku ipc call switcher next"/></keybind>
+        <keybind key="W-S-Tab"><action name="Execute" command="qs -c quickshellku ipc call switcher prev"/></keybind>
 
         <!-- Apps / launcher (quickshellku) -->
         <keybind key="W-Return"><action name="Execute" command="foot" /></keybind>
