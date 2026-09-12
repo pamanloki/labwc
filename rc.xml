@@ -9,7 +9,7 @@
 <labwc_config>
     <core>
         <decoration>server</decoration>
-        <gap>4</gap>
+        <gap>8</gap>  <!-- a little breathing room when tiling/snapping, macOS-style -->
         <adaptiveSync>yes</adaptiveSync>
         <reuseOutputMode>yes</reuseOutputMode>
     </core>
@@ -43,6 +43,12 @@
         <followMouse>no</followMouse>
         <raiseOnFocus>yes</raiseOnFocus>
     </focus>
+
+    <!-- macOS-like: new windows cascade down instead of stacking exactly -->
+    <placement>
+        <policy>cascade</policy>
+        <cascadeOffset x="40" y="40" />
+    </placement>
 
     <snapping>
         <range>5</range>
@@ -81,6 +87,9 @@
         <keybind key="W-5"><action name="GoToDesktop" to="5" /></keybind>
         <keybind key="W-C-Right"><action name="GoToDesktop" to="right" wrap="yes" /></keybind>
         <keybind key="W-C-Left"><action name="GoToDesktop" to="left" wrap="yes" /></keybind>
+        <!-- macOS Mission Control: Ctrl+Left/Right switches spaces -->
+        <keybind key="C-Right"><action name="GoToDesktop" to="right" wrap="yes" /></keybind>
+        <keybind key="C-Left"><action name="GoToDesktop" to="left" wrap="yes" /></keybind>
         <keybind key="W-S-1"><action name="SendToDesktop" to="1" /></keybind>
         <keybind key="W-S-2"><action name="SendToDesktop" to="2" /></keybind>
         <keybind key="W-S-3"><action name="SendToDesktop" to="3" /></keybind>
@@ -90,17 +99,19 @@
         <!-- Window management -->
         <keybind key="W-q"><action name="Close" /></keybind>
         <keybind key="A-F4"><action name="Close" /></keybind>
-        <keybind key="W-space"><action name="ToggleMaximize" /></keybind>
+        <keybind key="W-m"><action name="Iconify" /></keybind>  <!-- Cmd+M minimize -->
         <keybind key="W-f"><action name="ToggleFullscreen" /></keybind>
         <keybind key="W-c"><action name="ToggleSnapToRegion" region="center" /></keybind>
-        <keybind key="W-Up"><action name="ToggleMaximize" /></keybind>
+        <keybind key="W-Up"><action name="ToggleMaximize" /></keybind>  <!-- maximize (Cmd+Space is now the launcher) -->
         <keybind key="W-Left"><action name="ToggleSnapToEdge" direction="left" /></keybind>
         <keybind key="W-Right"><action name="ToggleSnapToEdge" direction="right" /></keybind>
         <keybind key="W-Down"><action name="ToggleSnapToEdge" direction="down" /></keybind>
         <keybind key="A-Tab"><action name="NextWindow" /></keybind>
+        <keybind key="W-Tab"><action name="NextWindow" /></keybind>  <!-- Cmd+Tab app/window switch -->
 
         <!-- Apps / launcher (quickshellku) -->
         <keybind key="W-Return"><action name="Execute" command="foot" /></keybind>
+        <keybind key="W-space"><action name="Execute" command="qs -c quickshellku ipc call launcher toggle" /></keybind>  <!-- Cmd+Space = Spotlight -->
         <keybind key="W-d"><action name="Execute" command="qs -c quickshellku ipc call launcher toggle" /></keybind>
         <keybind key="W-S-Return"><action name="Execute" command="qs ipc call launcher toggle" /></keybind>
         <keybind key="W-comma"><action name="Execute" command="qs ipc call launcher toggle" /></keybind> <!-- launcher ';' = clipboard -->
@@ -177,7 +188,7 @@
 
     <libinput>
         <device category="default">
-            <naturalScroll>no</naturalScroll>
+            <naturalScroll>yes</naturalScroll>  <!-- macOS default trackpad direction -->
             <accelProfile>flat</accelProfile>
             <tap>yes</tap>
             <tapAndDrag>yes</tapAndDrag>
