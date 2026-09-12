@@ -74,8 +74,10 @@
         <region name="bottom-right" x="50%" y="50%" height="50%" width="50%" />
     </regions>
 
-    <!-- leave room for the top menu bar (32px) + a little for the dock -->
-    <margin top="0" bottom="0" left="0" right="0" />  <!-- bar/dock reserve their own space via layer-shell exclusiveZone -->
+    <!-- bar/dock still reserve their own space via layer-shell exclusiveZone;
+         this margin adds an even gap around maximized/tiled windows on every
+         edge (the labwc equivalent of Openbox's <margins>) -->
+    <margin top="8" bottom="8" left="8" right="8" />
 
     <keyboard>
         <default />
