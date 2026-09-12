@@ -28,11 +28,12 @@
         <font place="OnScreenDisplay"><name>SF Pro Text</name><size>12</size><weight>bold</weight></font>
     </theme>
 
-    <windowSwitcher show="yes" preview="yes" outlines="no">
+    <!-- macOS Cmd+Tab feel: icon-led, most-recently-used order -->
+    <windowSwitcher show="yes" preview="yes" outlines="no" order="focus">
         <fields>
-            <field content="type" width="20%" />
-            <field content="identifier" width="40%" />
-            <field content="title" width="40%" />
+            <field content="icon" width="15%" />
+            <field content="trimmed_identifier" width="35%" />
+            <field content="title" width="50%" />
         </fields>
     </windowSwitcher>
 
@@ -107,7 +108,9 @@
         <keybind key="W-Right"><action name="ToggleSnapToEdge" direction="right" /></keybind>
         <keybind key="W-Down"><action name="ToggleSnapToEdge" direction="down" /></keybind>
         <keybind key="A-Tab"><action name="NextWindow" /></keybind>
-        <keybind key="W-Tab"><action name="NextWindow" /></keybind>  <!-- Cmd+Tab app/window switch -->
+        <keybind key="A-S-Tab"><action name="PreviousWindow" /></keybind>
+        <keybind key="W-Tab"><action name="NextWindow" /></keybind>  <!-- Cmd+Tab forward -->
+        <keybind key="W-S-Tab"><action name="PreviousWindow" /></keybind>  <!-- Cmd+Shift+Tab backward -->
 
         <!-- Apps / launcher (quickshellku) -->
         <keybind key="W-Return"><action name="Execute" command="foot" /></keybind>
