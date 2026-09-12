@@ -188,7 +188,7 @@
 
     <libinput>
         <device category="default">
-            <naturalScroll>yes</naturalScroll>  <!-- macOS default trackpad direction -->
+            <naturalScroll>no</naturalScroll>
             <accelProfile>flat</accelProfile>
             <tap>yes</tap>
             <tapAndDrag>yes</tapAndDrag>
